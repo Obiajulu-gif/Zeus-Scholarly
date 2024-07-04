@@ -1,8 +1,8 @@
 import React from 'react'
-
+import JobLayout from '../Jobs/JobLayout'
 const ExclusiveSectionLayout = () => {
   return (
-    <div>ExclusiveSectionLayout</div>
+    <div><JobLayout/></div>
   )
 }
 

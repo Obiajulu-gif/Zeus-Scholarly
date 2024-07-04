@@ -7,7 +7,7 @@ import mobileBg from "../../assets/pexels-teona-swift-6913721.jpg";
 
 const Hero = () => {
 	return (
-		<div className="relative bg-w py-9 sm:py-16 lg:py-15">
+		<div className="relative bg-w py-9 sm:py-30 lg:py-15">
 			<div className="absolute inset-0 lg:hidden">
 				<img
 					src={mobileBg}
@@ -17,14 +17,14 @@ const Hero = () => {
 				<div className="absolute inset-0 bg-gray-900 opacity-50"></div>{" "}
 				{/* Changed to dark color */}
 			</div>
-			<div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div className="relative max-w-7xl mx-auto px-4 sm:px-15 lg:px-8">
 				<div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
 					<div className="relative text-left z-10">
 						<div className="absolute inset-0 hidden lg:block">
 							<div className="absolute inset-0 opacity-50"></div>
 						</div>
 						<div className="relative">
-							<h1 className="text-3xl sm:p-3 font-bold lg:text-gray-900 sm:text-blue-400 sm:text-yellow sm:text-7xl lg:text-5xl xl:text-6xl">
+							<h1 className="text-3xl sm:p-30 sm:mt-8  font-bold lg:text-gray-900 sm:text-blue-400 sm:text-yellow sm:text-7xl lg:text-5xl xl:text-6xl">
 								Zeus Scholarly
 							</h1>
 							<h2 className="mt-2 text-xl lg:text-indigo-600 sm:text-indigo-200 sm:mt-4 sm:text-2xl lg:text-3xl xl:text-4xl">
