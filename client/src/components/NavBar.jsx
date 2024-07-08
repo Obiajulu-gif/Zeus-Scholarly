@@ -9,13 +9,18 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
-import logo from "../assets/logo.svg";
+import { AiFillHome } from "react-icons/ai"; // Home icon
+import { MdSchool } from "react-icons/md"; // Scholarship icon
+import { RiVipDiamondFill } from "react-icons/ri"; // Exclusive icon
+
+import logo from "../assets/Zeus_Scholarly_logo.svg";
 
 const navigation = [
+	{ name: "Home", href: "/" },
 	{ name: "Scholarships", href: "/scholarships" },
 	{ name: "Exclusive", href: "/exclusive" },
-	{ name: "Internship", href: "/internship" },
-	{ name: "Research Grant", href: "/researchgrant" },
+	// { name: "Internship", href: "/internship" },
+	// { name: "Research Grant", href: "/researchgrant" },
 ];
 
 function classNames(...classes) {
@@ -24,7 +29,7 @@ function classNames(...classes) {
 
 export default function NavBar() {
 	return (
-		<Disclosure as="nav" className="fixed top-0 w-full z-50 bg-blue-800">
+		<Disclosure as="nav" className=" sticky top-0  w-full z-50 bg-blue-200">
 			{({ open }) => (
 				<>
 					<div className=" mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -35,9 +40,15 @@ export default function NavBar() {
 									<span className="absolute -inset-0.5" />
 									<span className="sr-only">Open main menu</span>
 									{open ? (
-										<XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+										<XMarkIcon
+											className="block h-6 w-6 text-indigo-900"
+											aria-hidden="true"
+										/>
 									) : (
-										<Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+										<Bars3Icon
+											className="block h-6 w-6 text-indigo-900"
+											aria-hidden="true"
+										/>
 									)}
 								</DisclosureButton>
 							</div>
@@ -45,14 +56,14 @@ export default function NavBar() {
 								<div className="flex flex-shrink-0 items-center">
 									<NavLink to="/">
 										<img
-											className="h-8 w-auto"
+											className="h-11 w-auto"
 											src={logo}
 											alt="Zeus Scholarly"
 										/>
 									</NavLink>
 								</div>
 								<div className="hidden sm:ml-6 sm:block">
-									<div className="flex space-x-4">
+									<div className="flex space-x-4 space-y-1 px-2 pb-3 pt-2">
 										{navigation.map((item) => (
 											<NavLink
 												key={item.name}
@@ -61,12 +72,22 @@ export default function NavBar() {
 													classNames(
 														isActive
 															? "bg-blue-900 text-white"
-															: "text-gray-200 hover:bg-blue-700 hover:text-white",
+															: "text-indigo-900 hover:bg-blue-700 hover:text-white ",
 														"rounded-md px-3 py-2 text-sm font-medium"
 													)
 												}
 												aria-current={item.current ? "page" : undefined}
 											>
+												{/* Conditionally render icons based on the item name */}
+												{item.name === "Home" && (
+													<AiFillHome className="mr-2" />
+												)}
+												{item.name === "Scholarships" && (
+													<MdSchool className="mr-2" />
+												)}
+												{item.name === "Exclusive" && (
+													<RiVipDiamondFill className="mr-2" />
+												)}
 												{item.name}
 											</NavLink>
 										))}
@@ -144,7 +165,7 @@ export default function NavBar() {
 							</div>
 						</div>
 					</div>
-
+					{/* Mobile view */}
 					<DisclosurePanel className="sm:hidden">
 						<div className="space-y-1 px-2 pb-3 pt-2">
 							{navigation.map((item) => (
@@ -156,12 +177,20 @@ export default function NavBar() {
 										classNames(
 											isActive
 												? "bg-blue-900 text-white"
-												: "text-gray-200 hover:bg-blue-700 hover:text-white",
-											"block rounded-md px-3 py-2 text-base font-medium"
+												: "text-indigo-900 hover:bg-blue-700 hover:text-white",
+											"flex items-center rounded-md px-3 py-2 text-base font-medium"
 										)
 									}
 									aria-current={item.current ? "page" : undefined}
 								>
+									{/* Conditionally render icons based on the item name */}
+									{item.name === "Home" && <AiFillHome className="mr-2" />}
+									{item.name === "Scholarships" && (
+										<MdSchool className="mr-2" />
+									)}
+									{item.name === "Exclusive" && (
+										<RiVipDiamondFill className="mr-2" />
+									)}
 									{item.name}
 								</DisclosureButton>
 							))}

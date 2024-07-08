@@ -6,13 +6,14 @@ import { IoMdSchool } from "react-icons/io"; // For dummy icon
 const ScholarshipLayout = () => {
 	const [countries, setCountries] = useState([]);
 	const [selectedCountry, setSelectedCountry] = useState("Finland");
-	const [selectedDegree, setSelectedDegree] = useState("Master");
 	const [scholarships, setScholarships] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 	const [page, setPage] = useState(1);
 	const [totalResults, setTotalResults] = useState(0);
 	const [searchTerm, setSearchTerm] = useState("");
+	const [selectedDegree, setSelectedDegree] = useState("Master");
+	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
 	useEffect(() => {
 		const cacheKey = "countries";
@@ -93,7 +94,7 @@ const ScholarshipLayout = () => {
 
 	const handleDegreeChange = (degree) => {
 		setSelectedDegree(degree);
-		setPage(1); // Reset to the first page
+		setIsDropdownOpen(false); // Close the dropdown
 	};
 
 	const handlePageChange = (newPage) => {
@@ -134,23 +135,37 @@ const ScholarshipLayout = () => {
 						))}
 					</select>
 				</div>
-				<div>
-					<p className="text-lg font-medium text-gray-700">Degree level</p>
-					<ul className="mt-2 space-y-2">
-						{["All", "PHD", "Master", "Bachelor", "Course"].map((degree) => (
-							<li
-								key={degree}
-								className={`cursor-pointer px-2 py-1 rounded ${
-									selectedDegree === degree
-										? "bg-blue-500 text-white"
-										: "text-gray-700"
-								} hover:bg-blue-500 hover:text-white transition-colors duration-200`}
-								onClick={() => handleDegreeChange(degree)}
-							>
-								{degree}
-							</li>
-						))}
-					</ul>
+				<p className="text-lg font-medium text-gray-700">Degree level</p>
+				<div className="relative">
+					<button
+						className="block w-full text-left md:hidden px-4 py-2 bg-gray-200 rounded-md"
+						onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+					>
+						{selectedDegree}
+						<span className="float-right text-blue-800">&#9660;</span> {/* Downward arrow */}
+					</button>
+
+					<div
+						className={`absolute w-full mt-1 bg-white shadow-lg rounded-md ${
+							isDropdownOpen ? "" : "hidden"
+						} md:block`}
+					>
+						<ul className="max-h-60 overflow-auto">
+							{["All", "PHD", "Master", "Bachelor", "Course"].map((degree) => (
+								<li
+									key={degree}
+									className={`cursor-pointer px-2 py-1 rounded ${
+										selectedDegree === degree
+											? "bg-blue-500 text-white"
+											: "text-gray-700"
+									} hover:bg-blue-500 hover:text-white transition-colors duration-200`}
+									onClick={() => handleDegreeChange(degree)}
+								>
+									{degree}
+								</li>
+							))}
+						</ul>
+					</div>
 				</div>
 			</div>
 			<div className="w-full md:w-3/4 pl-0 md:pl-4">

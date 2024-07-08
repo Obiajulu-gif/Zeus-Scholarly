@@ -24,7 +24,7 @@ const FindScholarshipSection = () => {
 							<h2 className="text-xl font-bold text-gray-800">
 								Find College Scholarships Easily
 							</h2>
-							<p className="text-gray-600 mt-2">
+							<p className="text-gray-600 mt-2 text-justify">
 								Unlock scholarships for college using our sophisticated matching
 								technology. Just fill out your profile, and our algorithm will
 								comb through countless scholarship options to identify the ones
@@ -37,10 +37,10 @@ const FindScholarshipSection = () => {
 							<FaListAlt />
 						</div>
 						<div>
-							<h2 className="text-xl font-bold text-gray-800">
+							<h2 className="text-xl font-bold text-gray-800 text-justify">
 								Explore Our College Scholarship Directory
 							</h2>
-							<p className="text-gray-600 mt-2">
+							<p className="text-gray-600 mt-2 text-justify">
 								Explore scholarships by category in our detailed Scholarship
 								Directory. Seamlessly navigate through various college
 								scholarships, organized for easy access. Whether your search
@@ -59,7 +59,7 @@ const FindScholarshipSection = () => {
 							<h2 className="text-xl font-bold text-gray-800">
 								Organize Your Scholarship Matches
 							</h2>
-							<p className="text-gray-600 mt-2">
+							<p className="text-gray-600 mt-2 text-justify">
 								Refine your scholarship search by criteria like due dates or
 								award amounts. Effortlessly monitor scholarships you favor,
 								those you've submitted applications for, and the ones you've
@@ -76,7 +76,7 @@ const FindScholarshipSection = () => {
 							<h2 className="text-xl font-bold text-gray-800">
 								Apply For and Win College Scholarships
 							</h2>
-							<p className="text-gray-600 mt-2">
+							<p className="text-gray-600 mt-2 text-justify">
 								We've created a personalized list of college scholarships just
 								for you. Now's the time to apply to the scholarships you've been
 								matched with. Remember, applying to more scholarships increases

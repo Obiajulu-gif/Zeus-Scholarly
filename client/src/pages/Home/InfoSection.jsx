@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 import dealsImage from "../../assets/undraw_education.svg";
 
 const InfoSection = () => {
@@ -11,15 +13,18 @@ const InfoSection = () => {
 						Empowering Scholars Worldwide
 					</p>
 					<p className="mt-4 text-lg text-gray-600">
-						Access Student Deals, Discounts, and Resources
+						Access Student Scholarships, Internship, Research grant and Jobs
 					</p>
 					<p className="mt-2 text-md text-gray-600">
 						Save time, money, and energy with AI-powered scholarship
 						recommendations.
 					</p>
-					<button className="mt-6 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+					<NavLink
+						to="/scholarships"
+						className="mt-6 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 inline-block"
+					>
 						Access Deals
-					</button>
+					</NavLink>
 				</div>
 				<div className="md:w-1/2 mt-8 md:mt-0 md:pl-8 flex justify-center md:block hidden">
 					<img
@@ -31,16 +36,16 @@ const InfoSection = () => {
 			</div>
 			<div className="max-w-7xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 				<div className="bg-white shadow-lg rounded-lg p-6 text-center">
-					<p className="text-2xl font-bold text-blue-600">$150</p>
-					<p className="text-lg text-gray-700">Off Services</p>
+					<p className="text-2xl font-bold text-blue-600">24 hour</p>
+					<p className="text-lg text-gray-700">Services</p>
 				</div>
 				<div className="bg-white shadow-lg rounded-lg p-6 text-center">
-					<p className="text-2xl font-bold text-blue-600">25%</p>
-					<p className="text-lg text-gray-700">Off Subscriptions</p>
+					<p className="text-2xl font-bold text-blue-600">Reliable</p>
+					<p className="text-lg text-gray-700">Recommendations</p>
 				</div>
 				<div className="bg-white shadow-lg rounded-lg p-6 text-center">
-					<p className="text-2xl font-bold text-blue-600">$25</p>
-					<p className="text-lg text-gray-700">For Investing</p>
+					<p className="text-2xl font-bold text-blue-600">Free Access</p>
+					<p className="text-lg text-gray-700">Scholarships Opportunity</p>
 				</div>
 				<div className="bg-white shadow-lg rounded-lg p-6 text-center">
 					<p className="text-2xl font-bold text-blue-600">FREE</p>
