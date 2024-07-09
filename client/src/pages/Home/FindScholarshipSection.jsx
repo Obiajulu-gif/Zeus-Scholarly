@@ -63,7 +63,7 @@ const FindScholarshipSection = () => {
 								Refine your scholarship search by criteria like due dates or
 								award amounts. Effortlessly monitor scholarships you favor,
 								those you've submitted applications for, and the ones you've
-								secured. With Scholarships.com, ensure you never overlook a
+								secured. With Zeus Scholarly, ensure you never overlook a
 								scholarship chance or a critical deadline.
 							</p>
 						</div>

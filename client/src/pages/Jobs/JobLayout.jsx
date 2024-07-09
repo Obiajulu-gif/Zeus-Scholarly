@@ -27,7 +27,7 @@ const JobLayout = () => {
         
 		try {
 			const response = await fetch(
-				`http://localhost:8080/api/jobs?title=${title}&location=${location}`
+				`https://zeus-scholarly-backend.onrender.com/api/jobs?title=${title}&location=${location}`
 			);
 			const data = await response.json();
 			setJobs(data.jobs);

@@ -24,7 +24,7 @@ const ScholarshipLayout = () => {
 		}
 
 		axios
-			.get("http://localhost:8080/api/countries")
+			.get("https://zeus-scholarly-backend.onrender.com/api/countries")
 			.then((response) => {
 				if (Array.isArray(response.data)) {
 					setCountries(response.data);
@@ -52,7 +52,7 @@ const ScholarshipLayout = () => {
 		if (selectedCountry && selectedDegree) {
 			setLoading(true);
 			axios
-				.get("http://localhost:8080/api/scholarships", {
+				.get("https://zeus-scholarly-backend.onrender.com/api/scholarships", {
 					params: {
 						selectedCountry,
 						selectedDegree,
