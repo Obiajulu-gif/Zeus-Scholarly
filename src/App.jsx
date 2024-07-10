@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import NavBar from "./components/NavBar"; // Assuming you have a NavBar component
-import HomeLayout from "./pages/Home/HomeLayout"; // Assuming you have a HomeLayout component
+import NavBar from "./components/NavBar"; 
+import HomeLayout from "./pages/Home/HomeLayout"; 
 import Footer from "./components/Footer";
 import "./index.css";
 import ScholarshipLayout from "./pages/ScholarshipSection/ScholarshipLayout";

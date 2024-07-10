@@ -2,8 +2,27 @@
 
 Welcome to Zeus Scholarly, a comprehensive platform designed to help students find scholarship opportunities worldwide. This project aims to solve the problem of students struggling to locate scholarship opportunities by aggregating data from various sources and sending notifications via text messages using Twilio.
 
-## Preview 
-![alt text](image.png)
+## Preview
+
+### Desktop View
+
+![alt text](./src/assets/image.png)
+
+### Mobile View
+
+![alt text](./src/assets/image-1.png)
+## Deployed Site
+
+You can visit the deployed site here: [Zeus Scholarly Live Site](#https://zeus-scholarly.onrender.com/)
+
+## Final Project Blog Article
+
+Read more about the development process and challenges faced during the creation of Zeus Scholarly in our blog post: [Zeus Scholarly Development Blog](#your-blog-article-url)
+
+## Authors
+
+- **Okoye Emmanuel Obiajulu** - [LinkedIn](#https://www.linkedin.com/in/emmanuel-okoye-79a387200/
+)
 ## Features
 
 - **Scholarship Search**: Easily search for scholarships based on criteria like level of study, field of interest, and location.
@@ -14,7 +33,7 @@ Welcome to Zeus Scholarly, a comprehensive platform designed to help students fi
 ## Technologies Used
 
 - **Frontend**: React, Tailwind CSS, React Icons
-- **Backend**: Flask
+- **Backend**: Flask - [View Backend Repository](https://github.com/Obiajulu-gif/Zeus-Scholarly-backend)
 - **Database**: Firebase Realtime Database
 - **APIs**: Google SERP API
 
@@ -31,7 +50,7 @@ Zeus-Scholarly/
 │ ├── app/ # Application code  
 │ └── requirements.txt # Python dependencies  
 │  
-└── README.md # Project README file  
+└── README.md # Project README file
 
 ## Getting Started
 
@@ -79,11 +98,6 @@ Zeus-Scholarly/
    cd client
    npm run dev
    ```
-   Backend:
-   ```bash
-   cd server
-   python3 main.py
-   ```
 
 ## Contributing
 
@@ -100,6 +114,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-For any inquiries, please contact Okoye Emmanuel Obiajulu at [okoyeemmanuel998@gmail.com].
+For any inquiries, please contact Okoye Emmanuel Obiajulu at ***okoyeemmanuelobiajulu@gmail.com***.
 
 Thank you for visiting Zeus Scholarly! We hope this project helps you find the scholarship opportunities you need to achieve your academic goals.
