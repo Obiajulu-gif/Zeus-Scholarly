@@ -12,6 +12,7 @@ import { NavLink } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai"; // Home icon
 import { MdSchool } from "react-icons/md"; // Scholarship icon
 import { RiVipDiamondFill } from "react-icons/ri"; // Exclusive icon
+import { FaBriefcase } from "react-icons/fa";
 
 import logo from "../assets/Zeus_Scholarly_logo.svg";
 
@@ -19,7 +20,7 @@ const navigation = [
 	{ name: "Home", href: "/" },
 	{ name: "Scholarships", href: "/scholarships" },
 	{ name: "Exclusive", href: "/exclusive" },
-	// { name: "Internship", href: "/internship" },
+	{ name: "Internship", href: "/internship" },
 	// { name: "Research Grant", href: "/researchgrant" },
 ];
 
@@ -87,6 +88,9 @@ export default function NavBar() {
 												)}
 												{item.name === "Exclusive" && (
 													<RiVipDiamondFill className="mr-2" />
+												)}
+												{item.name === "Internship" && (
+													<FaBriefcase className="mr-2" />
 												)}
 												{item.name}
 											</NavLink>

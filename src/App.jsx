@@ -22,8 +22,8 @@ const App = () => {
 				<Route path="/exclusive" element={<ExclusiveSectionLayout />} />
 				<Route path="/" element={<HomeLayout />} />
 				<Route path="/scholarships" element={<ScholarshipLayout />} />
-				{/* <Route path="/internship" element={<InternshipSectionLayout />} />
-						<Route path="/researchgrant" element={<ResearchGrantLayout />} /> */}
+				<Route path="/internship" element={<IntershipSectionLayout />} />
+						{/* <Route path="/researchgrant" element={<ResearchGrantLayout />} /> */} */}
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
 			</Routes>
