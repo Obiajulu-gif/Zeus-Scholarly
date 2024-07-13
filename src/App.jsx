@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import NavBar from "./components/NavBar"; 
-import HomeLayout from "./pages/Home/HomeLayout"; 
+import NavBar from "./components/NavBar";
+import HomeLayout from "./pages/Home/HomeLayout";
 import Footer from "./components/Footer";
 import "./index.css";
 import ScholarshipLayout from "./pages/ScholarshipSection/ScholarshipLayout";
@@ -16,16 +16,32 @@ const App = () => {
 		<AuthContextProvider>
 			<NavBar />
 			<Routes>
-				{/* Render only when the user is login */}
-				{/* <Route element={<PrivateRoute />}>
-				</Route> */}
-				<Route path="/exclusive" element={<ExclusiveSectionLayout />} />
+				<Route path="/" element={<HomeLayout />} />
+				<Route path="/scholarships" element={<ScholarshipLayout />} />
+				<Route
+					path="/exclusive"
+					element={
+						<PrivateRoute>
+							<ExclusiveSectionLayout />
+						</PrivateRoute>
+					}
+				/>
+				<Route
+					path="/internship"
+					element={
+						<PrivateRoute>
+							<IntershipSectionLayout />
+						</PrivateRoute>
+					}
+				/>
+				<Route path="/login" element={<Login />} />
+				<Route path="/signup" element={<Signup />} />
+				{/* <Route path="/exclusive" element={<ExclusiveSectionLayout />} />
 				<Route path="/" element={<HomeLayout />} />
 				<Route path="/scholarships" element={<ScholarshipLayout />} />
 				<Route path="/internship" element={<IntershipSectionLayout />} />
-						{/* <Route path="/researchgrant" element={<ResearchGrantLayout />} /> */} */}
 				<Route path="/login" element={<Login />} />
-				<Route path="/signup" element={<Signup />} />
+				<Route path="/signup" element={<Signup />} /> */}
 			</Routes>
 			<Footer />
 		</AuthContextProvider>

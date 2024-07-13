@@ -1,14 +1,15 @@
-import { Navigate } from "react-router-dom";
 import { useContext } from "react";
+import { Navigate } from "react-router-dom";
 import { UsersContext } from "./AuthProvider";
 
-export default function ProtectedRoutes({ children }) {
-  const { user } = useContext(UsersContext);
+const PrivateRoute = ({ children }) => {
+	const { user } = useContext(UsersContext);
 
-  // Check if the user is authenticated by Firebase Authentication
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
+	if (!user) {
+		return <Navigate to="/login" />;
+	}
 
-  return children;
-}
+	return children;
+};
+
+export default PrivateRoute;

@@ -8,13 +8,12 @@ import {
 	getAuth,
 	GoogleAuthProvider,
 } from "firebase/auth";
-
 import { AppFirebase } from "./firebase";
 
 export const UsersContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-	const [user, setUser] = useState({});
+	const [user, setUser] = useState(null);
 	const auth = getAuth(AppFirebase);
 	const provider = new GoogleAuthProvider();
 
@@ -42,7 +41,7 @@ export const AuthContextProvider = ({ children }) => {
 		return () => {
 			unsubscribe();
 		};
-	}, []);
+	}, [auth]);
 
 	return (
 		<UsersContext.Provider

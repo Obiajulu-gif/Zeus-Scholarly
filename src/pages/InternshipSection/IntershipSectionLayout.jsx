@@ -85,7 +85,7 @@ const InternshipSectionLayout = () => {
 			<section className="relative bg-gradient-to-r from-green-400 to-blue-500 text-white">
 				<div className="absolute inset-0 bg-black opacity-50"></div>
 				<div className="relative container mx-auto px-4 py-24 text-center">
-					<h1 className="text-4xl font-bold">
+					<h1 className="text-4xl text-white font-bold">
 						Internships Kick-Start Your Career
 					</h1>
 					<p className="mt-4 max-w-2xl mx-auto">

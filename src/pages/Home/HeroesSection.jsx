@@ -6,7 +6,11 @@ import image4 from "../../assets/pexels-teona-swift-6913721.jpg";
 import mobileBg from "../../assets/pexels-teona-swift-6913721.jpg";
 import { FaRocket, FaUserPlus } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { UsersContext } from "../../store/AuthProvider";
 const Hero = () => {
+	const { user, logout } = useContext(UsersContext);
+
 	return (
 		<div className="relative bg-blue-100 py-6 sm:py-24 lg:py-3">
 			<div className="absolute inset-0 lg:hidden">
@@ -39,14 +43,16 @@ const Hero = () => {
 									<FaRocket className="mr-2" /> Get Started
 								</NavLink>
 							</div>
-							<div className="rounded-md shadow">
-								<NavLink
-									to="/signup"
-									className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-100 transition duration-300 ease-in-out transform hover:-translate-y-1 md:py-4 md:text-lg md:px-10"
-								>
-									<FaUserPlus className="mr-2" /> Sign Up
-								</NavLink>
-							</div>
+							{!user && (
+								<div className="rounded-md shadow">
+									<NavLink
+										to="/signup"
+										className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-100 transition duration-300 ease-in-out transform hover:-translate-y-1 md:py-4 md:text-lg md:px-10"
+									>
+										<FaUserPlus className="mr-2" /> Sign Up
+									</NavLink>
+								</div>
+							)}
 						</div>
 					</div>
 					<div className="hidden lg:block mt-10 lg:mt-0 animate-fade-in">
