@@ -2,16 +2,21 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UsersContext } from "./AuthProvider";
 import Cookies from "js-cookie";
-import { MdEmail, MdLock } from "react-icons/md"; // Importing email and lock icons
+import { MdEmail, MdLock } from "react-icons/md";
+import { FcGoogle } from "react-icons/fc"; // Importing Google icon
 
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const { signInUser } = useContext(UsersContext);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState("");
+	const { signInUser, signGoogleAccount } = useContext(UsersContext);
 	const navigate = useNavigate();
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
+		setLoading(true);
+		setError("");
 		try {
 			await signInUser(email, password);
 			setEmail("");
@@ -20,6 +25,23 @@ const Login = () => {
 			navigate("/");
 		} catch (error) {
 			console.error(error);
+			setError(error.message);
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	const handleGoogleLogin = async () => {
+		setLoading(true);
+		setError("");
+		try {
+			await signGoogleAccount();
+			navigate("/");
+		} catch (error) {
+			console.error(error);
+			setError(error.message);
+		} finally {
+			setLoading(false);
 		}
 	};
 
@@ -29,6 +51,7 @@ const Login = () => {
 				<h3 className="text-2xl font-bold text-center">
 					Login to your account
 				</h3>
+				{error && <p className="text-red-500 text-center mt-2">{error}</p>}
 				<form onSubmit={handleLogin}>
 					<div className="mt-4">
 						<div>
@@ -62,8 +85,11 @@ const Login = () => {
 							</div>
 						</div>
 						<div className="flex items-baseline justify-between">
-							<button className="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">
-								Login
+							<button
+								className="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"
+								disabled={loading}
+							>
+								{loading ? "Logging In..." : "Login"}
 							</button>
 							<p className="mt-4">
 								<Link
@@ -76,6 +102,16 @@ const Login = () => {
 						</div>
 					</div>
 				</form>
+				<div className="mt-4 flex justify-center">
+					<button
+						className="flex items-center px-6 py-2 text-white bg-red-600 rounded-lg hover:bg-red-900"
+						onClick={handleGoogleLogin}
+						disabled={loading}
+					>
+						<FcGoogle className="w-5 h-5 mr-2" />
+						{loading ? "Logging In..." : "Login with Google"}
+					</button>
+				</div>
 			</div>
 		</div>
 	);

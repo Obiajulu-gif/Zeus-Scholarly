@@ -14,6 +14,8 @@ export const UsersContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
+	const [profileImage, setProfileImage] = useState("");
+	const [username, setUsername] = useState("");
 	const auth = getAuth(AppFirebase);
 	const provider = new GoogleAuthProvider();
 
@@ -26,8 +28,18 @@ export const AuthContextProvider = ({ children }) => {
 	};
 
 	const signGoogleAccount = () => {
-		return signInWithPopup(auth, provider);
-	};
+    return signInWithPopup(auth, provider).then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // Extract profile information
+        setProfileImage(user.photoURL);
+        setUsername(user.displayName);
+        return result;
+    });
+};
 
 	const logout = () => {
 		return signOut(auth);
@@ -45,7 +57,18 @@ export const AuthContextProvider = ({ children }) => {
 
 	return (
 		<UsersContext.Provider
-			value={{ createUser, user, logout, signInUser, signGoogleAccount }}
+			value={{
+				createUser,
+				user,
+				logout,
+				signInUser,
+				signGoogleAccount,
+				setUser,
+				profileImage,
+				setProfileImage,
+				username,
+				setUsername,
+			}}
 		>
 			{children}
 		</UsersContext.Provider>

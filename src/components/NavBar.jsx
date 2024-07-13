@@ -24,7 +24,7 @@ function classNames(...classes) {
 }
 
 export default function NavBar() {
-	const { user, logout } = useContext(UsersContext);
+	const { user, logout, profileImage, username } = useContext(UsersContext);
 	const navigate = useNavigate();
 
 	// Define the navigation array inside the NavBar function to access the user state
@@ -132,10 +132,17 @@ export default function NavBar() {
 								{/* Profile dropdown */}
 								<Menu as="div" className="relative ml-3">
 									<div>
-										<MenuButton className="relative flex rounded-full bg-blue-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-800">
-											<span className="absolute -inset-1.5" />
+										<MenuButton className="relative flex items-center rounded-full bg-blue-800 text-sm text-white p-2 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-800">
 											<span className="sr-only">Open user menu</span>
-											<UserProfileImage src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
+											<UserProfileImage
+												src={profileImage}
+												className="h-8 w-8 rounded-full mr-2"
+											/>
+											{user && (
+												<span className="hidden md:inline">
+													Welcome, {username}
+												</span>
+											)}
 										</MenuButton>
 									</div>
 									<MenuItems
