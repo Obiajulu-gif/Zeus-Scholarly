@@ -76,7 +76,7 @@ export default function NavBar() {
 							</div>
 							<div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
 								<div className="flex flex-shrink-0 items-center">
-									<NavLink to="/">
+		   							<NavLink to="/">
 										<img
 											className="h-11 w-auto"
 											src={logo}
@@ -120,15 +120,7 @@ export default function NavBar() {
 								</div>
 							</div>
 							<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-								<button
-									type="button"
-									className="relative rounded-full bg-blue-800 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-800"
-								>
-									<span className="absolute -inset-1.5" />
-									<span className="sr-only">View notifications</span>
-									<BellIcon className="h-6 w-6" aria-hidden="true" />
-								</button>
-
+								
 								{/* Profile dropdown */}
 								<Menu as="div" className="relative ml-3">
 									<div>

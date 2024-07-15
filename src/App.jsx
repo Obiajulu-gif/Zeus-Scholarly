@@ -1,48 +1,57 @@
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import HomeLayout from "./pages/Home/HomeLayout";
 import Footer from "./components/Footer";
+import LoadingSpinner from "./components/LoadingSpinner"
+import HomeLayout from "./pages/Home/HomeLayout"; // Direct import
 import "./index.css";
-import ScholarshipLayout from "./pages/ScholarshipSection/ScholarshipLayout";
-import ExclusiveSectionLayout from "./pages/ExclusiveSection/ExclusiveSectionLayout";
-import IntershipSectionLayout from "./pages/InternshipSection/IntershipSectionLayout";
-import ResearchGrantLayout from "./pages/ResearchGrantSection/ResearchGrantLayout";
-import Login from "../src/store/Login";
-import Signup from "../src/store/Signup";
 import PrivateRoute from "../src/store/PrivateRoute";
 import { AuthContextProvider } from "./store/AuthProvider";
+
+// Lazy loading components
+const ScholarshipLayout = lazy(() =>
+	import("./pages/ScholarshipSection/ScholarshipLayout")
+);
+const ExclusiveSectionLayout = lazy(() =>
+	import("./pages/ExclusiveSection/ExclusiveSectionLayout")
+);
+const IntershipSectionLayout = lazy(() =>
+	import("./pages/InternshipSection/IntershipSectionLayout")
+);
+const ResearchGrantLayout = lazy(() =>
+	import("./pages/ResearchGrantSection/ResearchGrantLayout")
+);
+const Login = lazy(() => import("../src/store/Login"));
+const Signup = lazy(() => import("../src/store/Signup"));
+
 const App = () => {
 	return (
 		<AuthContextProvider>
 			<NavBar />
-			<Routes>
-				<Route path="/" element={<HomeLayout />} />
-				<Route path="/scholarships" element={<ScholarshipLayout />} />
-				<Route
-					path="/exclusive"
-					element={
-						<PrivateRoute>
-							<ExclusiveSectionLayout />
-						</PrivateRoute>
-					}
-				/>
-				<Route
-					path="/internship"
-					element={
-						<PrivateRoute>
-							<IntershipSectionLayout />
-						</PrivateRoute>
-					}
-				/>
-				<Route path="/login" element={<Login />} />
-				<Route path="/signup" element={<Signup />} />
-				{/* <Route path="/exclusive" element={<ExclusiveSectionLayout />} />
-				<Route path="/" element={<HomeLayout />} />
-				<Route path="/scholarships" element={<ScholarshipLayout />} />
-				<Route path="/internship" element={<IntershipSectionLayout />} />
-				<Route path="/login" element={<Login />} />
-				<Route path="/signup" element={<Signup />} /> */}
-			</Routes>
+			<Suspense fallback={<LoadingSpinner/>}>
+				<Routes>
+					<Route path="/" element={<HomeLayout />} />
+					<Route path="/scholarships" element={<ScholarshipLayout />} />
+					<Route
+						path="/exclusive"
+						element={
+							<PrivateRoute>
+								<ExclusiveSectionLayout />
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						path="/internship"
+						element={
+							<PrivateRoute>
+								<IntershipSectionLayout />
+							</PrivateRoute>
+						}
+					/>
+					<Route path="/login" element={<Login />} />
+					<Route path="/signup" element={<Signup />} />
+				</Routes>
+			</Suspense>
 			<Footer />
 		</AuthContextProvider>
 	);
