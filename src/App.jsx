@@ -35,17 +35,15 @@ const App = () => {
 					<Route
 						path="/exclusive"
 						element={
-							<PrivateRoute>
+							// <PrivateRoute>
 								<ExclusiveSectionLayout />
-							</PrivateRoute>
+							// </PrivateRoute>
 						}
 					/>
 					<Route
 						path="/internship"
 						element={
-							<PrivateRoute>
 								<IntershipSectionLayout />
-							</PrivateRoute>
 						}
 					/>
 					<Route path="/login" element={<Login />} />

@@ -32,7 +32,7 @@ const Hero = () => {
 						</h2>
 						<p className="mt-6 text-lg  lg:text-gray-700  sm:text-xl lg:text-2xl animate-fade-in ">
 							Lightning-Fast Support for gaining scholarships based on our
-							Artificial Intelligence recommendation system.
+							Artificial Intelligence recommendation system...
 						</p>
 						<div className="mt-8 sm:mt-12 sm:flex space-y-4 sm:space-y-0 sm:space-x-4 animate-slide-in">
 							<div className="rounded-md shadow">
